@@ -107,7 +107,7 @@ async def act(request: ActRequest):
     cached_actions = cache_lookup(request.task_id)
     if cached_actions is not None:
         if request.step_index < len(cached_actions):
-            action = cached_actions[request.step_index]
+            action = cached_actions[request.step_index + 1]
             logger.info(
                 "cache hit",
                 extra={
